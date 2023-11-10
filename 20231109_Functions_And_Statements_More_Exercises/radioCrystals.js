@@ -2,12 +2,15 @@ function solve(array) {
   const desiredTickness = array.shift();
   let xRayCounter = 0;
   let isFinished = false;
-  let operations = {
-    Cut: [(a) => a / 4, 0],
-    Lap: [(a) => a * 0.8, 0],
-    Grind: [(a) => a - 20, 0],
-    Etch: [(a) => a - 2, 0],
-  };
+  function resetOperations(){
+    return {
+        Cut: [(a) => a / 4, 0],
+        Lap: [(a) => a * 0.8, 0],
+        Grind: [(a) => a - 20, 0],
+        Etch: [(a) => a - 2, 0],
+      };
+  }
+  let operations = resetOperations()
 
   function xRay(ore) {
     if (xRayCounter === 0) {
@@ -56,9 +59,7 @@ function solve(array) {
     }
     console.log(`Finished crystal ${desiredTickness} microns`);
     isFinished = false
-    for (let operation of Object.keys(operations)) {
-      operations[operation][1] = 0;
-    }
+    operations = resetOperations()
   }
 }
 solve([1375, 50000]);
