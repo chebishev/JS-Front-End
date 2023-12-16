@@ -16,3 +16,4 @@ createEmployeesList([
   "Bruce Willis",
   "Tom Holland",
 ]);
+JS Front-End Regular Exam - 16 Dec 2023
